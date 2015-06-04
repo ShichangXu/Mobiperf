@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mobiperf"
+    android:versionCode="1341"
+    android:versionName="3.4.1" >
+
+  	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />
+  	<uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+  	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  	<uses-permission android:name="android.permission.INTERNET" />
+  	<uses-permission android:name = "android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+  	<application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light" >
+        <activity
+            android:name="com.mobiperf.SpeedometerApp"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.mobiperf.SpeedometerApp" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mobiperf.SplashScreenActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mobiperf.SystemConsoleActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.mobiperf.ResultsConsoleActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.mobiperf.MeasurementCreationActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@android:style/Theme.Light.NoTitleBar">   
+        </activity>
+        <activity
+            android:name="com.mobiperf.SpeedometerPreferenceActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.mobiperf.MeasurementScheduleConsoleActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+    	<activity android:name="com.mobiperf.About"></activity>
+		<activity
+            android:name="com.mobiperf.VisualizationActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+    	
+    <service 
+      android:name="com.mobiperf.Console" 
+      android:exported="false">
+    </service>
+    <receiver android:name="com.mobiperf.WatchdogBootReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+        <category android:name="android.intent.category.HOME" />
+      </intent-filter>
+    </receiver>
+    </application>
+
+</manifest>
